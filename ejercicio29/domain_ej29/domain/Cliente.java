@@ -12,10 +12,4 @@ public class Cliente {
     private Tarjeta[] tarjetas;
     private Carrito[] carritos;
 
-    public void pagarCarrito(Carrito carrito) {
-        carrito.comprar();
-        // La idea es que le pase por parametros informacion necesaria
-        // para que se compre el carrito
-    }
-
 }
