@@ -12,4 +12,8 @@ public class Multa {
     public LocalDate getFechaRealizada() {
         return this.fechaRealizada;
     }
+
+    public boolean vigente() {
+        return LocalDate.now().isBefore(fechaRealizada.plusDays(2));
+    }
 }

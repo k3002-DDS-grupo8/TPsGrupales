@@ -14,13 +14,11 @@ public class Prestamo {
         this.fechaDevolucion = fechaDevolucion;
         this.copia = copia;
     }
-
-    //
     public boolean multa() {
         return fechaDevolucion.isAfter(fechaVencimiento);
     }
     public void devolucion(){
         this.fechaDevolucion = LocalDate.now();
     }
-    public LocalDate fechaDevolucion() {return fechaDevolucion}
+    public LocalDate fechaDevolucion() { return fechaDevolucion; }
 }

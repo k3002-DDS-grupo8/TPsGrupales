@@ -9,23 +9,23 @@ public class Lector {
     private Multa multaActual;
 
     public void establecerUltimaMulta(Multa multa){
-
+        if (multa.getFechaRealizada().isAfter(multaActual.getFechaRealizada())) {
+            multaActual = multa;
+        }
     }
 
 
     public void agregarPrestamo(Prestamo prestamo){prestamos.add(prestamo);}
-    public void terminarPrestamo(Prestamo prestamo){
+    public void devolverPrestamo(Prestamo prestamo){
         prestamo.devolucion();
         prestamos.remove(prestamo);
     }
-    public void revisarMultas(){
+    public boolean revisarMultas(){
         for (Prestamo prestamo : prestamos) {
             if(prestamo.multa()){
-                establecerUltimaMulta(new Multa(prestamo.fechaDevolucion()))
+                establecerUltimaMulta(new Multa(prestamo.fechaDevolucion()));
             }
-
         }
-
+        return multaActual.vigente();
     }
-
 }
